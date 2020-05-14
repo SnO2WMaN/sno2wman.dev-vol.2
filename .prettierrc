@@ -1,0 +1,9 @@
+{
+  "quoteProps": "consistent",
+  "overrides": [
+    {
+      "files": [".eslintrc", ".prettierrc", ".lintstagedrc", ".huskyrc"],
+      "options": { "parser": "json" }
+    }
+  ]
+}
