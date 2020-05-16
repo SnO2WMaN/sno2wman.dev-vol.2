@@ -55,7 +55,15 @@
       },
       "rules": {
         // react
-        "react/prop-types": 0
+        "react/prop-types": 0,
+
+        // import
+        "import/extensions": [
+          2,
+          {
+            "ts": "never"
+          }
+        ]
       }
     },
     {
