@@ -43,8 +43,8 @@ export const Component: React.FC<Props> = ({ className }) => (
       <Link link="/profile" icon={faIdCard}>
         Profile
       </Link>
-      <Link link="/work" icon={faBriefcase}>
-        Works
+      <Link link="/projects" icon={faBriefcase}>
+        Projects
       </Link>
     </ul>
     <ul
