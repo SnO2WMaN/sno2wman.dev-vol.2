@@ -6,6 +6,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "run-s -cn lint:*",
+    "lint:tsc": "tsc --noEmit",
     "lint:eslint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:prettier": "prettier --check *.{css,scss,sass,json,yml,yaml,md}",
     "fmt": "run-s -cn fmt:*",
