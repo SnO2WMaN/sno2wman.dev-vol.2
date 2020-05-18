@@ -4,3 +4,4 @@ node_modules/
 # Compiled outputs
 .next/
 dist/
+out/
