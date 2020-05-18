@@ -13,4 +13,6 @@ jobs:
           node-version: 12.x
       - run: yarn install --frozen-lockfile --ignore-optional
       - run: yarn run deploy
-      - run: npx @lhci/cli autorun
+      - run: npx @lhci/cli@0.3.x autorun
+        env:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
