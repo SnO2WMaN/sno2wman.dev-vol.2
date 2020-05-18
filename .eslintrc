@@ -32,7 +32,14 @@
       }
     ],
     // react
-    "react/self-closing-comp": 2
+    "react/self-closing-comp": 2,
+    // eslint-comment
+    "eslint-comments/disable-enable-pair": [
+      2,
+      {
+        "allowWholeFile": true
+      }
+    ]
   },
   "overrides": [
     {
