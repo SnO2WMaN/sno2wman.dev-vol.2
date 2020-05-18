@@ -1038,11 +1038,6 @@
   dependencies:
     any-observable "^0.3.0"
 
-"@types/animejs@^3.1.0":
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/@types/animejs/-/animejs-3.1.0.tgz#9fa31e5fcf3a0304aa097a2a357e03630d820ab1"
-  integrity sha512-OOOQ11ylW8GeFY85yM3HrprR5wZl1R1KsxrxNLMpE9l24zs+4yXAu4WsDESWcCAf5+PxvPNsLV9W/PB3J+XGMQ==
-
 "@types/classnames@^2.2.10":
   version "2.2.10"
   resolved "https://registry.yarnpkg.com/@types/classnames/-/classnames-2.2.10.tgz#cc658ca319b6355399efc1f5b9e818f1a24bf999"
@@ -1398,11 +1393,6 @@ alphanum-sort@^1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/alphanum-sort/-/alphanum-sort-1.0.2.tgz#97a1119649b211ad33691d9f9f486a8ec9fbe0a3"
   integrity sha1-l6ERlkmyEa0zaR2fn0hqjsn74KM=
-
-animejs@^3.2.0:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/animejs/-/animejs-3.2.0.tgz#2daea7365983249022cc454fa726acdb4a84345d"
-  integrity sha512-zhtGl5cS0G2f5DfciMO8uwWpnx06nfFnHlXYYXHBazHep1Lyd6kEtBQP+9hpYKE0dBZjIigHp9VpMO95ZfXQJQ==
 
 anser@1.4.9:
   version "1.4.9"
