@@ -2,6 +2,7 @@ import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import classnames from "classnames";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React from "react";
 import styled from "styled-components";
 import { Merge } from "type-fest";
@@ -12,6 +13,7 @@ export const Component: React.FC<Props> = ({
   children,
   icon,
   link,
+  current,
 }) => (
   <li
     className={classnames(
@@ -23,6 +25,8 @@ export const Component: React.FC<Props> = ({
       "relative",
       "select-none",
       "hover:bg-gray-400",
+      "border-blue-400",
+      { "border-l-8": current },
     )}
   >
     <FontAwesomeIcon
@@ -45,7 +49,9 @@ export const Component: React.FC<Props> = ({
     </Link>
   </li>
 );
-export const StyledComponent: typeof Component = styled(Component)``;
+export const StyledComponent: typeof Component = styled(Component)`
+  transition: border-width 0.25s ease;
+`;
 
 export type ContainerProps = {
   className?: string;
@@ -54,7 +60,10 @@ export type ContainerProps = {
   icon: IconDefinition;
 };
 export const SocialButton: React.FC<ContainerProps> = (props) => {
-  return <StyledComponent {...props} />;
+  const router = useRouter();
+  const current = router.pathname === props.link;
+
+  return <StyledComponent {...props} current={current} />;
 };
 
 export default SocialButton;
