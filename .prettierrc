@@ -1,5 +1,6 @@
 {
   "quoteProps": "consistent",
+  "trailingComma": "all",
   "overrides": [
     {
       "files": [".eslintrc", ".prettierrc", ".lintstagedrc", ".huskyrc"],
