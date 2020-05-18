@@ -21,6 +21,9 @@ logs
 coverage/
 .nyc_output/
 
+# Lighthouse
+.lighthouseci/
+
 # IDEs, editors
 .vscode/
 .idea/
