@@ -29,7 +29,7 @@ export const Component: React.FC<Props> = ({ className }) => {
           "flex",
           "flex-col",
           "items-center",
-          "justify-center"
+          "justify-center",
         )}
       >
         <animated.h1
@@ -38,7 +38,7 @@ export const Component: React.FC<Props> = ({ className }) => {
             "text-xl",
             "text-white",
             "font-display",
-            "tracking-widest"
+            "tracking-widest",
           )}
         >
           SnO2WMaN

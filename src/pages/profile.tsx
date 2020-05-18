@@ -15,7 +15,7 @@ export const Component: React.FC<Props> = ({ className }) => (
         "flex",
         "flex-col",
         "items-center",
-        "justify-center"
+        "justify-center",
       )}
     >
       <h1
@@ -23,7 +23,7 @@ export const Component: React.FC<Props> = ({ className }) => (
           "text-xl",
           "text-white",
           "font-display",
-          "tracking-widest"
+          "tracking-widest",
         )}
       >
         Profile

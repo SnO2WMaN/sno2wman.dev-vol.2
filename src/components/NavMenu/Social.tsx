@@ -17,7 +17,7 @@ export const Component: React.FC<Props> = ({
       className,
       "relative",
       "hover:bg-gray-300",
-      "rounded-full"
+      "rounded-full",
     )}
   >
     <div
@@ -26,7 +26,7 @@ export const Component: React.FC<Props> = ({
         "inset-0",
         "flex",
         "justify-center",
-        "items-center"
+        "items-center",
       )}
     >
       <FontAwesomeIcon

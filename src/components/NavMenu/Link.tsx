@@ -22,7 +22,7 @@ export const Component: React.FC<Props> = ({
       "py-4",
       "relative",
       "select-none",
-      "hover:bg-gray-400"
+      "hover:bg-gray-400",
     )}
   >
     <FontAwesomeIcon
@@ -35,7 +35,7 @@ export const Component: React.FC<Props> = ({
         "tracking-wide",
         "text-sm",
         "uppercase",
-        "text-gray-900"
+        "text-gray-900",
       )}
     >
       {children}

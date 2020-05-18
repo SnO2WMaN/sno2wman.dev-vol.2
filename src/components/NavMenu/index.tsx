@@ -25,7 +25,7 @@ export const Component: React.FC<Props> = ({ className }) => (
       "bg-gray-100",
       "flex",
       "flex-col",
-      "overflow-hidden"
+      "overflow-hidden",
     )}
   >
     <ul
@@ -34,7 +34,7 @@ export const Component: React.FC<Props> = ({ className }) => (
         "flex",
         "flex-col",
         "justify-center",
-        "w-full"
+        "w-full",
       )}
     >
       <Link link="/" icon={faHome}>
@@ -55,7 +55,7 @@ export const Component: React.FC<Props> = ({ className }) => (
         "col-gap-4",
         "row-gap-2",
         "px-6",
-        "pb-6"
+        "pb-6",
       )}
     >
       <Social icon={faTwitter} href="https://twitter.com/SnO2WMaN" />

@@ -22,7 +22,7 @@ export const AppComponent: React.FC<Props> = ({
           "top-0",
           "w-full",
           "h-screen",
-          "overflow-y-scroll"
+          "overflow-y-scroll",
         )}
       >
         <Component {...pageProps} />
