@@ -36,8 +36,6 @@
     "type-fest": "^0.13.1"
   },
   "devDependencies": {
-    "@commitlint/cli": "^8.3.5",
-    "@commitlint/config-conventional": "^8.3.4",
     "@types/animejs": "^3.1.0",
     "@types/classnames": "^2.2.10",
     "@types/node": "^14.0.1",
