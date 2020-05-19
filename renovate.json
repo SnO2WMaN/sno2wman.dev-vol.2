@@ -5,5 +5,6 @@
     ":maintainLockFilesMonthly",
     ":prHourlyLimitNone",
     ":prConcurrentLimitNone"
-  ]
+  ],
+  "baseBranches": ["develop"]
 }
