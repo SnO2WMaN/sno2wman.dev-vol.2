@@ -15,6 +15,10 @@
     "fmt:eslint": "npm run lint:eslint -- --fix",
     "fmt:prettier": "npm run lint:prettier -- --write"
   },
+  "engines": {
+    "node": "12.x",
+    "yarn": "1.x"
+  },
   "dependencies": {
     "@fortawesome/fontawesome-free": "5.13.0",
     "@fortawesome/fontawesome-svg-core": "1.2.28",
@@ -39,7 +43,7 @@
   "devDependencies": {
     "@types/classnames": "2.2.10",
     "@types/color": "3.0.1",
-    "@types/node": "14.0.1",
+    "@types/node": "12.x",
     "@types/react": "16.9.35",
     "@typescript-eslint/eslint-plugin": "2.33.0",
     "@typescript-eslint/parser": "2.33.0",
