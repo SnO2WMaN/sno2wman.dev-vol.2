@@ -3,6 +3,21 @@ name: CI
 on: [push]
 
 jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - run: yarn install --frozen-lockfile
+      - run: npm run lint:eslint -- --format junit --output-file eslint.xml
+      - uses: actions/upload-artifact@v1
+        with:
+          name: ESLint
+          path: eslint.xml
+
   lighthouse:
     name: Lighthouse
     runs-on: ubuntu-latest
