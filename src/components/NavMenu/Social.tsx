@@ -20,26 +20,27 @@ export const Component: React.FC<Props> = ({
       "rounded-full",
     )}
   >
-    <div
-      className={classnames(
-        "absolute",
-        "inset-0",
-        "flex",
-        "justify-center",
-        "items-center",
-      )}
-    >
-      <FontAwesomeIcon
-        icon={icon}
-        className={classnames("text-xl", "text-gray-700")}
-      />
-    </div>
     <a
       href={href}
       target="_blank"
       rel="noreferrer"
       className={classnames("absolute", "inset-0")}
-    />
+    >
+      <div
+        className={classnames(
+          "absolute",
+          "inset-0",
+          "flex",
+          "justify-center",
+          "items-center",
+        )}
+      >
+        <FontAwesomeIcon
+          icon={icon}
+          className={classnames("text-xl", "text-gray-700")}
+        />
+      </div>
+    </a>
   </li>
 );
 export const StyledComponent: typeof Component = styled(Component)`

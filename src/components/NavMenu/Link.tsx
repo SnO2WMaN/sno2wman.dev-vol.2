@@ -45,7 +45,7 @@ export const Component: React.FC<Props> = ({
       {children}
     </span>
     <Link href={link}>
-      <a className={classnames("absolute", "inset-0")} />
+      <div className={classnames("absolute", "inset-0", "cursor-pointer")} />
     </Link>
   </li>
 );
