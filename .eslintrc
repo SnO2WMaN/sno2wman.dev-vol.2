@@ -8,6 +8,7 @@
     "plugin:promise/recommended",
     "plugin:unicorn/recommended",
     "plugin:react/recommended",
+    "plugin:jsx-a11y/recommended",
     "plugin:import/recommended",
     // prettier
     "plugin:prettier/recommended",
