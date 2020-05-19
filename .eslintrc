@@ -6,6 +6,7 @@
     // plugin
     "plugin:eslint-comments/recommended",
     "plugin:promise/recommended",
+    "plugin:unicorn/recommended",
     "plugin:react/recommended",
     "plugin:import/recommended",
     // prettier
@@ -20,6 +21,15 @@
     }
   },
   "rules": {
+    // unicorn
+    "unicorn/prevent-abbreviations": [
+      1,
+      {
+        "replacements": {
+          "props": { "properties": false }
+        }
+      }
+    ],
     // import
     "import/order": [
       2,
