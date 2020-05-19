@@ -13,3 +13,6 @@ indent_style = space
 
 [*.md]
 trim_trailing_whitespace = false
+
+[.*-version]
+insert_final_newline = false
