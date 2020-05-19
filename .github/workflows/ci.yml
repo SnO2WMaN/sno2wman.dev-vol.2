@@ -11,6 +11,15 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 12.x
+      - run: echo "::set-output name=dir::$(yarn cache dir)"
+        id: yarn-cache-dir-path
+      - uses: actions/cache@v1
+        id: yarn-cache
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
       - run: yarn install --frozen-lockfile
       - run: npm run lint:eslint -- --format junit --output-file eslint.xml
       - uses: actions/upload-artifact@v1
@@ -26,11 +35,22 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 12.x
+      - run: echo "::set-output name=dir::$(yarn cache dir)"
+        id: yarn-cache-dir-path
+      - uses: actions/cache@v1
+        id: yarn-cache
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+      - run: yarn install --frozen-lockfile --ignore-optional
       - uses: actions/cache@v1
         with:
           path: ${{ github.workspace }}/.next/cache
           key: ${{ runner.os }}-nextjs-${{ hashFiles('yarn.lock') }}
-      - run: yarn install --frozen-lockfile --ignore-optional
+          restore-keys: |
+            ${{ runner.os }}-nextjs-
       - run: yarn run deploy
       - run: npx @lhci/cli@0.3.x autorun
         env:
