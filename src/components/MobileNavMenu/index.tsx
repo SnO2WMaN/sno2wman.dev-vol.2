@@ -1,8 +1,10 @@
+import classnames from "classnames";
 import React, { useState } from "react";
 import styled from "styled-components";
 import { Merge } from "type-fest";
 
 import Hamburger from "./Hamburger";
+import Menu from "./Menu";
 
 export type Props = Merge<
   ContainerProps,
@@ -10,10 +12,20 @@ export type Props = Merge<
 >;
 export const Component: React.FC<Props> = ({ className, toggleMenu, menu }) => (
   <>
-    <Hamburger className={className} toggleMenu={toggleMenu} menu={menu} />
+    <div className={className}>
+      <Hamburger toggleMenu={toggleMenu} menu={menu} />
+      <Menu
+        className={classnames("menu", "absolute", "left-0", "mb-4")}
+        open={menu}
+      />
+    </div>
   </>
 );
-export const StyledComponent: typeof Component = styled(Component)``;
+export const StyledComponent: typeof Component = styled(Component)`
+  > .menu {
+    bottom: 100%;
+  }
+`;
 
 export type ContainerProps = {
   className?: string;

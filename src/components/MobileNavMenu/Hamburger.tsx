@@ -10,20 +10,16 @@ export type Props = {
   menu: boolean;
 };
 
-export const Component: React.FC<{
-  className: string;
-  toggleMenu(): void;
-  menu: boolean;
-}> = ({ className, toggleMenu, menu }) => (
+export const Component: React.FC<Props> = ({ className, toggleMenu, menu }) => (
   <button
     onClick={toggleMenu}
     className={classnames(
       className,
-      "w-16",
-      "h-16",
+      "w-12",
+      "h-12",
       "overflow-hidden",
       "bg-white",
-      "bg-opacity-25",
+      "bg-opacity-50",
       "focus:outline-none",
       "rounded-lg",
       "shadow-lg",
@@ -47,7 +43,7 @@ export const Component: React.FC<{
     >
       <FontAwesomeIcon
         icon={faBars}
-        className={classnames("text-2xl", "text-gray-900")}
+        className={classnames("text-xl", "text-gray-900")}
       />
     </div>
     <div
@@ -68,7 +64,7 @@ export const Component: React.FC<{
     >
       <FontAwesomeIcon
         icon={faTimes}
-        className={classnames("text-2xl", "text-gray-900")}
+        className={classnames("text-xl", "text-gray-900")}
       />
     </div>
   </button>
