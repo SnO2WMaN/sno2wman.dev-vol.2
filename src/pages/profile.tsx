@@ -13,7 +13,10 @@ const social = Object.entries(links)
     color: colors[key],
     icon: icons[key],
   }))
-  .sort(({ color: a }, { color: b }) => Color(a).hue() - Color(b).hue());
+  .sort(
+    ({ color: a }, { color: b }) =>
+      ((Color(a).hue() + 40) % 360) - ((Color(b).hue() + 40) % 360),
+  );
 
 export type Props = {
   className?: string;
