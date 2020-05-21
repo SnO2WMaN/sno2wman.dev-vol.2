@@ -56,7 +56,9 @@ export const SocialButton: React.FC<ContainerProps> = (props) => {
       {trail.map(({ y, ...rest }, index) =>
         links[index]({
           style: {
-            transform: y.interpolate((value) => `translateY(${value}%)`),
+            transform: (y as any).interpolate(
+              (value) => `translateY(${value}%)`,
+            ),
             ...rest,
           },
         }),
