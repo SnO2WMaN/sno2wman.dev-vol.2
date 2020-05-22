@@ -39,7 +39,7 @@
     "react-use": "15.1.0",
     "styled-components": "5.1.0",
     "tailwindcss": "1.4.6",
-    "type-fest": "0.13.1"
+    "type-fest": "0.14.0"
   },
   "devDependencies": {
     "@types/classnames": "2.2.10",
