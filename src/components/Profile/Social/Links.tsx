@@ -17,9 +17,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import classnames from "classnames";
 import React from "react";
 
+import { IconKofi } from "~/assets/brand";
 import brandcolors from "~/data/brandcolors.json";
 import links from "~/data/socials.json";
 import { faAnnict, faBookmeter, faPixiv } from "~/icons";
+import tailwind from "~/utils/tailwind";
 
 export const colors: { [key in keyof typeof links]: string } = brandcolors;
 const getFontAwesomeIcon = (
@@ -27,7 +29,7 @@ const getFontAwesomeIcon = (
   icon: IconDefinition,
 ): JSX.Element => (
   <FontAwesomeIcon
-    className={classnames("text-lg")}
+    className={classnames("text-xl")}
     icon={icon}
     style={{ color: colors[key] }}
     fixedWidth
@@ -35,21 +37,22 @@ const getFontAwesomeIcon = (
 );
 
 export const icons: { [key in keyof typeof links]: JSX.Element } = {
-  twitter: getFontAwesomeIcon("twitter", faTwitter),
-  github: getFontAwesomeIcon("github", faGithub),
-  spotify: getFontAwesomeIcon("spotify", faSpotify),
-  soundcloud: getFontAwesomeIcon("soundcloud", faSoundcloud),
-  steam: getFontAwesomeIcon("steam", faSteam),
-  speakerdeck: getFontAwesomeIcon("speakerdeck", faSpeakerDeck),
-  discord: getFontAwesomeIcon("discord", faDiscord),
-  codepen: getFontAwesomeIcon("codepen", faCodepen),
-  lastfm: getFontAwesomeIcon("lastfm", faLastfm),
-  youtube: getFontAwesomeIcon("youtube", faYoutube),
-  npm: getFontAwesomeIcon("npm", faNpm),
-  keybase: getFontAwesomeIcon("keybase", faKeybase),
-  pixiv: getFontAwesomeIcon("pixiv", faPixiv),
-  annict: getFontAwesomeIcon("annict", faAnnict),
-  bookmeter: getFontAwesomeIcon("bookmeter", faBookmeter),
+  "twitter": getFontAwesomeIcon("twitter", faTwitter),
+  "github": getFontAwesomeIcon("github", faGithub),
+  "spotify": getFontAwesomeIcon("spotify", faSpotify),
+  "soundcloud": getFontAwesomeIcon("soundcloud", faSoundcloud),
+  "steam": getFontAwesomeIcon("steam", faSteam),
+  "speakerdeck": getFontAwesomeIcon("speakerdeck", faSpeakerDeck),
+  "discord": getFontAwesomeIcon("discord", faDiscord),
+  "codepen": getFontAwesomeIcon("codepen", faCodepen),
+  "lastfm": getFontAwesomeIcon("lastfm", faLastfm),
+  "youtube": getFontAwesomeIcon("youtube", faYoutube),
+  "npm": getFontAwesomeIcon("npm", faNpm),
+  "keybase": getFontAwesomeIcon("keybase", faKeybase),
+  "pixiv": getFontAwesomeIcon("pixiv", faPixiv),
+  "annict": getFontAwesomeIcon("annict", faAnnict),
+  "bookmeter": getFontAwesomeIcon("bookmeter", faBookmeter),
+  "ko-fi": <IconKofi style={{ width: tailwind.theme.fontSize.xl }} />,
 };
 
 export const socials: {
