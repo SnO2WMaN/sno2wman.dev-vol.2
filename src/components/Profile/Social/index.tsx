@@ -1,25 +1,23 @@
-import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import classnames from "classnames";
 import Color from "color";
-import Link from "next/link";
-import { useRouter } from "next/router";
 import React from "react";
 import styled from "styled-components";
 import { Merge } from "type-fest";
+
+import { socials } from "./Links";
 
 export type Props = Merge<ContainerProps, {}>;
 export const Component: React.FC<Props> = ({
   className,
   icon,
   color,
-  href,
+  link,
 }) => (
   <a
     className={classnames(className, "relative")}
     target="_blank"
     rel="noreferrer"
-    href={href}
+    href={link}
   >
     <div
       className={classnames("hoverer", "absolute", "inset-0", "rounded-full")}
@@ -55,11 +53,7 @@ export const StyledComponent: typeof Component = styled(Component)`
 
 export type ContainerProps = {
   className?: string;
-
-  color: string;
-  icon: JSX.Element;
-  href: string;
-};
+} & Omit<typeof socials[number], "key">;
 export const SocialButton: React.FC<ContainerProps> = (props) => {
   return <StyledComponent {...props} />;
 };

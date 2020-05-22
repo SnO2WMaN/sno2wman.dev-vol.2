@@ -4,19 +4,12 @@ import React from "react";
 import styled from "styled-components";
 
 import Social from "~/components/Profile/Social";
-import { colors, icons, links } from "~/components/Profile/Social/Links";
+import { socials } from "~/components/Profile/Social/Links";
 
-const social = Object.entries(links)
-  .map(([key, link]) => ({
-    key,
-    href: link,
-    color: colors[key],
-    icon: icons[key],
-  }))
-  .sort(
-    ({ color: a }, { color: b }) =>
-      ((Color(a).hue() + 40) % 360) - ((Color(b).hue() + 40) % 360),
-  );
+const social = socials.sort(
+  ({ color: a }, { color: b }) =>
+    ((Color(a).hue() + 40) % 360) - ((Color(b).hue() + 40) % 360),
+);
 
 export type Props = {
   className?: string;
