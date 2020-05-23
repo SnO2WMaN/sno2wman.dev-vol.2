@@ -50,12 +50,12 @@ export const Component: React.FC<Props> = ({
     <span
       className={classnames(
         "absolute",
-        "tracking-wide",
+        "tracking-wider",
         "text-xs",
         "uppercase",
         "ml-3",
+        "font-display",
         "text-gray-900",
-        "text-opacity-75",
       )}
     >
       {children}

@@ -36,8 +36,9 @@ export const Component: React.FC<Props> = ({
     />
     <span
       className={classnames(
-        "tracking-wide",
+        "tracking-widest",
         "text-sm",
+        "font-display",
         "uppercase",
         "text-gray-900",
       )}

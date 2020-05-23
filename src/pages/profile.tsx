@@ -5,6 +5,7 @@ import styled from "styled-components";
 
 import CodeBlock from "~/components/CodeBlock";
 import Card from "~/components/Profile/Card";
+import CommonCard from "~/components/Profile/CommonCard";
 import Social from "~/components/Profile/Social";
 import Timestamp from "~/components/Profile/Timestamp";
 import { socials } from "~/data/accounts";
@@ -46,7 +47,7 @@ export const Component: React.FC<Props> = ({ className }) => {
         >
           <Card
             className={classnames(
-              "col-span-2",
+              "col-span-3",
               "md:col-span-3",
               "lg:col-span-5",
 
@@ -75,11 +76,11 @@ export const Component: React.FC<Props> = ({ className }) => {
                 "shadow",
                 "pointer-events-none",
               )}
-              src="https://www.gravatar.com/avatar/9a828752a7771c3bf43e3bea39d9cf57?s=128"
+              src="https://www.gravatar.com/avatar/9a828752a7771c3bf43e3bea39d9cf57?s=512"
               alt="me"
             />
           </Card>
-          <Card
+          <CommonCard
             className={classnames(
               "bg-white",
               "p-2",
@@ -98,20 +99,16 @@ export const Component: React.FC<Props> = ({ className }) => {
                 "sm:grid-cols-8",
                 "md:grid-cols-10",
                 "lg:grid-cols-4",
-                "gap-2",
+                "gap-1",
               )}
             >
               {social.map((props) => (
                 <Social key={props.key} {...props} />
               ))}
             </div>
-          </Card>
-          <Card
+          </CommonCard>
+          <CommonCard
             className={classnames(
-              "bg-white",
-              "p-4",
-              "lg:p-8",
-
               "col-span-3",
               "md:col-span-4",
               "lg:col-span-4",
@@ -130,7 +127,7 @@ export const Component: React.FC<Props> = ({ className }) => {
               Imperdiet nulla malesuada pellentesque elit. Tortor pretium
               viverra suspendisse potenti nullam ac.
             </p>
-          </Card>
+          </CommonCard>
           <Card
             className={classnames(
               "col-span-3",
