@@ -7,6 +7,7 @@ import CodeBlock from "~/components/CodeBlock";
 import Card from "~/components/Profile/Card";
 import Social from "~/components/Profile/Social";
 import { socials } from "~/components/Profile/Social/Links";
+import Timestamp from "~/components/Profile/Timestamp";
 
 const social = socials.sort(
   ({ color: a }, { color: b }) =>
@@ -128,6 +129,23 @@ export const Component: React.FC<Props> = ({ className }) => {
               Imperdiet nulla malesuada pellentesque elit. Tortor pretium
               viverra suspendisse potenti nullam ac.
             </p>
+          </Card>
+          <Card
+            className={classnames(
+              "col-span-3",
+              "md:col-span-4",
+              "lg:col-span-6",
+            )}
+          >
+            <Timestamp
+              className={classnames(
+                "w-full",
+                "px-6",
+                "lg:px-8",
+                "py-6",
+                "lg:py-8",
+              )}
+            />
           </Card>
         </div>
       </div>
