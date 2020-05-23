@@ -4,7 +4,7 @@ import React from "react";
 import styled from "styled-components";
 import { Merge } from "type-fest";
 
-import { socials } from "./Links";
+import { socials } from "../../../data/accounts";
 
 export type Props = Merge<ContainerProps, {}>;
 export const Component: React.FC<Props> = ({
