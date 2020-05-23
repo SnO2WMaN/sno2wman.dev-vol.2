@@ -5,7 +5,9 @@ import { Merge } from "type-fest";
 
 export type Props = Merge<ContainerProps, {}>;
 export const Component: React.FC<Props> = ({ className, children }) => (
-  <div className={classnames(className, "rounded")}>{children}</div>
+  <div className={classnames(className, "overflow-hidden", "rounded")}>
+    {children}
+  </div>
 );
 export const StyledComponent: typeof Component = styled(Component)``;
 

@@ -6,8 +6,8 @@ import styled from "styled-components";
 import CodeBlock from "~/components/CodeBlock";
 import Card from "~/components/Profile/Card";
 import Social from "~/components/Profile/Social";
-import { socials } from "~/components/Profile/Social/Links";
 import Timestamp from "~/components/Profile/Timestamp";
+import { socials } from "~/data/accounts";
 
 const social = socials.sort(
   ({ color: a }, { color: b }) =>
@@ -34,7 +34,8 @@ export const Component: React.FC<Props> = ({ className }) => {
             "lg:px-4",
 
             "grid",
-            "gap-4",
+            "gap-2",
+            "md:gap-4",
 
             "grid-cols-3",
             "md:grid-cols-4",
