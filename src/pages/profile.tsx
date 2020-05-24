@@ -120,15 +120,8 @@ export const Component: React.FC<Props> = ({ className }) => {
               "justify-center",
             )}
           >
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </p>
-            <p>
-              Tellus in hac habitasse platea dictumst vestibulum rhoncus est.
-              Imperdiet nulla malesuada pellentesque elit. Tortor pretium
-              viverra suspendisse potenti nullam ac.
-            </p>
+            <p>楽園の素敵なフロントエンドエンジニア</p>
+            <p>色々なものに手を出して、一生身にならないだけの人生</p>
           </CommonCard>
           <Card
             className={classnames(
