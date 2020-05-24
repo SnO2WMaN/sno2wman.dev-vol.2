@@ -9,9 +9,9 @@ import Card from "~/components/Profile/Card";
 import CommonCard from "~/components/Profile/CommonCard";
 import Social from "~/components/Profile/Social";
 import Timestamp from "~/components/Profile/Timestamp";
-import { socials } from "~/data/accounts";
+import { socials as unsortedSocials } from "~/data/accounts";
 
-const social = socials.sort(
+const socials = unsortedSocials.sort(
   ({ color: a }, { color: b }) =>
     ((Color(a).hue() + 40) % 360) - ((Color(b).hue() + 40) % 360),
 );
@@ -104,8 +104,8 @@ export const Component: React.FC<Props> = ({ className }) => {
                 "gap-1",
               )}
             >
-              {social.map((props) => (
-                <Social key={props.key} {...props} />
+              {socials.map((props, index, array) => (
+                <Social key={props.key} {...props} t={index / array.length} />
               ))}
             </div>
           </CommonCard>
