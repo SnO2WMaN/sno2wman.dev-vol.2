@@ -2,12 +2,15 @@ import classnames from "classnames";
 import React from "react";
 import styled from "styled-components";
 
+import Head from "~/components/Head";
+
 export type Props = {
   className?: string;
   userAgent?: string;
 };
 export const Component: React.FC<Props> = ({ className }) => (
   <main className={classnames(className, "bg-red-500")}>
+    <Head title={"Projects"} url={"https://sno2wman.dev/projects"} />
     <div
       className={classnames(
         "w-full",

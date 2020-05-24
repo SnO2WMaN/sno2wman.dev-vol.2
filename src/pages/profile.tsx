@@ -4,6 +4,7 @@ import React from "react";
 import styled from "styled-components";
 
 import CodeBlock from "~/components/CodeBlock";
+import Head from "~/components/Head";
 import Card from "~/components/Profile/Card";
 import CommonCard from "~/components/Profile/CommonCard";
 import Social from "~/components/Profile/Social";
@@ -22,6 +23,7 @@ export type Props = {
 export const Component: React.FC<Props> = ({ className }) => {
   return (
     <main className={classnames(className, "bg-blue-300")}>
+      <Head title={"Profile"} url={"https://sno2wman.dev/profile"} />
       <div
         className={classnames("w-full", "min-h-screen", "flex", "items-center")}
       >
