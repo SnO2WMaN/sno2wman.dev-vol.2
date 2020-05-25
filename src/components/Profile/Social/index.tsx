@@ -10,7 +10,6 @@ import { socials } from "../../../data/accounts";
 export type Props = Merge<ContainerProps, {}>;
 export const Component: React.FC<Props> = ({
   className,
-  index,
   icon,
   color,
   link,
