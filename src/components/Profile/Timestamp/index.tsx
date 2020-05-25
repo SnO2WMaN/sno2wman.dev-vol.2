@@ -8,10 +8,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import classnames from "classnames";
 import dayjs from "dayjs";
 import React from "react";
+import { animated, useSpring, useTrail } from "react-spring";
 import styled from "styled-components";
 import { Merge } from "type-fest";
 
 import log from "~/data/timestamps";
+import percentage from "~/utils/percentage";
 import tailwind from "~/utils/tailwind";
 
 type Event = {
@@ -21,70 +23,135 @@ type Event = {
   link?: string;
 };
 
-export const EComponent: React.FC<Event & { className?: string }> = ({
-  className,
-  date,
-  icon,
-  title,
-  link,
-}) => (
-  <li className={classnames(className, "flex", "flex-col", "items-center")}>
-    <span
-      className={classnames(
-        "text-gray-600",
-        "text-xs",
-        "tracking-widest",
-        "font-mono",
-        "select-none",
-      )}
-    >
-      {date}
-    </span>
-    <div className={classnames("p-2", "my-1", "flex")}>
-      <FontAwesomeIcon
-        icon={icon}
-        className={classnames("text-xl", "text-gray-500")}
-      />
-    </div>
-    <p
-      className={classnames(
-        "text-gray-400",
-        "text-sm",
-        "tracking-wide",
-        "select-all",
-      )}
-      style={{
-        writingMode: "vertical-rl",
-        textOrientation: "sideways",
-      }}
-    >
-      {title}
-    </p>
-    {link && (
-      <a
-        href={link}
+export const EComponent: React.FC<
+  Event & { className?: string; t1: number; t2: number }
+> = ({ className, date, icon, title, link, t1, t2 }) => {
+  const baseDelay = 250 + t1 * 500 + t2 * 250;
+  const iconCoverAnimation = useSpring({
+    transform: "scale(1.25)",
+    opacity: 0,
+    from: { transform: "scale(0)", opacity: 1 },
+    config: { friction: 40 },
+    delay: baseDelay,
+  });
+  const iconAnimation = useSpring({
+    transform: "scale(1)",
+    from: { transform: "scale(0)" },
+    config: { friction: 35 },
+    delay: baseDelay + 50,
+  });
+  const textAnimation = useSpring({
+    transform: "translateX(0)",
+    opacity: 1,
+    from: {
+      opacity: 0,
+      transform: "translateX(-50%)",
+    },
+    config: { friction: 25 },
+    delay: baseDelay + 50,
+  });
+  return (
+    <li className={classnames(className, "flex", "flex-col", "items-center")}>
+      <SplitSpan
         className={classnames(
-          "p-2",
-          "mt-2",
-          "flex",
-          "rounded-full",
-          "hover:bg-gray-800",
+          "text-gray-600",
+          "text-xs",
+          "tracking-widest",
+          "font-mono",
+          "select-none",
         )}
+        delay={baseDelay}
       >
-        <FontAwesomeIcon
-          icon={faExternalLinkAlt}
-          className={classnames("text-sm", "text-gray-500")}
+        {date}
+      </SplitSpan>
+      <div className={classnames("p-2", "my-2", "relative")}>
+        <animated.div
+          className={classnames(
+            "bg-gray-500",
+            "absolute",
+            "inset-0",
+            "rounded-full",
+          )}
+          style={iconCoverAnimation}
         />
-      </a>
-    )}
-  </li>
-);
+        <animated.div style={iconAnimation} className={classnames("flex")}>
+          <FontAwesomeIcon
+            icon={icon}
+            className={classnames("text-xl", "text-gray-500")}
+          />
+        </animated.div>
+      </div>
+      <animated.p
+        className={classnames(
+          "text-gray-400",
+          "text-sm",
+          "tracking-wide",
+          "select-all",
+        )}
+        style={{
+          writingMode: "vertical-rl",
+          textOrientation: "sideways",
+          ...textAnimation,
+        }}
+      >
+        {title}
+      </animated.p>
+      {link && (
+        <a
+          href={link}
+          className={classnames(
+            "p-2",
+            "mt-2",
+            "flex",
+            "rounded-full",
+            "hover:bg-gray-800",
+          )}
+        >
+          <FontAwesomeIcon
+            icon={faExternalLinkAlt}
+            className={classnames("text-sm", "text-gray-500")}
+          />
+        </a>
+      )}
+    </li>
+  );
+};
 
+export const SplitSpan: React.FC<{ className?: string; delay: number }> = ({
+  delay,
+  children,
+  className,
+}) => {
+  const sp = children.toString().split("");
+  const s = useTrail(sp.length, {
+    opacity: 1,
+    y: 0,
+    from: { opacity: 0, y: -50 },
+    config: { tension: 500, friction: 35 },
+    delay,
+  });
+  return (
+    <span className={classnames(className)}>
+      {s.map(({ y, ...rest }, index) => (
+        <animated.span
+          className={classnames("inline-block")}
+          key={index}
+          style={{
+            ...rest,
+            transform: y.interpolate((v) => `translateY(${v}%)`),
+          }}
+        >
+          {sp[index]}
+        </animated.span>
+      ))}
+    </span>
+  );
+};
 export type Props = Merge<ContainerProps, { timestamps: [string, Event[]][] }>;
 export const Component: React.FC<Props> = ({ className, timestamps }) => (
   <div className={classnames(className, "bg-gray-900")}>
     <ul className={classnames("w-full", "flex", "overflow-x-scroll", "pb-4")}>
-      {timestamps.map(([year, logs]) => (
+      {timestamps.map(([year, logs], yi, { length: years }) => (
         <li
           key={year}
           className={classnames(
@@ -93,11 +160,25 @@ export const Component: React.FC<Props> = ({ className, timestamps }) => (
             "pl-6",
             "pr-6",
             "py-2",
-            "border-l",
-            "border-gray-800",
+            "relative",
           )}
         >
-          <span
+          <animated.div
+            className={classnames(
+              "absolute",
+              "inset-0",
+              "border-l",
+              "border-gray-800",
+              "origin-top",
+            )}
+            style={useSpring({
+              transform: "scaleY(1)",
+              from: { transform: "scaleY(0)" },
+              delay: percentage(yi, years) * 500,
+            })}
+          />
+          <SplitSpan
+            delay={percentage(yi, years) * 500}
             className={classnames(
               "text-gray-700",
               "text-xs",
@@ -107,10 +188,15 @@ export const Component: React.FC<Props> = ({ className, timestamps }) => (
             )}
           >
             {year}
-          </span>
+          </SplitSpan>
           <ul className={classnames("flex", "space-x-6")}>
-            {logs.map((event, i) => (
-              <EComponent key={i} {...event} />
+            {logs.map((event, i, { length: events }) => (
+              <EComponent
+                key={i}
+                {...event}
+                t1={percentage(yi, years)}
+                t2={percentage(i, events)}
+              />
             ))}
           </ul>
         </li>
