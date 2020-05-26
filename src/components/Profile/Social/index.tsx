@@ -14,19 +14,6 @@ export const Component: React.FC<Props> = ({
   link,
   t,
 }) => {
-  const maskAnimation = useSpring({
-    scale: 1,
-    opacity: 0,
-    from: { scale: 0, opacity: 1 },
-    delay: t * 500,
-  });
-  const iconAnimation = useSpring({
-    scale: 1,
-    opacity: 1,
-    from: { scale: 0, opacity: 0 },
-    delay: t * 500,
-  });
-
   return (
     <a
       className={classnames(className, "relative")}
@@ -38,8 +25,12 @@ export const Component: React.FC<Props> = ({
         className={classnames("absolute", "inset-0", "rounded-full")}
         style={{
           backgroundColor: color,
-          ...maskAnimation,
-          transform: maskAnimation.scale.interpolate((v) => `scale(${v})`),
+          ...useSpring({
+            scale: 1,
+            opacity: 0,
+            from: { scale: 0, opacity: 1 },
+            delay: t * 500,
+          }),
         }}
       />
       <div
@@ -55,8 +46,12 @@ export const Component: React.FC<Props> = ({
           "items-center",
         )}
         style={{
-          ...iconAnimation,
-          transform: iconAnimation.scale.interpolate((v) => `scale(${v})`),
+          ...useSpring({
+            scale: 1,
+            opacity: 1,
+            from: { scale: 0, opacity: 0 },
+            delay: t * 500,
+          }),
         }}
       >
         {icon}

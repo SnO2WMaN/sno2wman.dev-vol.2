@@ -44,25 +44,14 @@ export type ContainerProps = {
 };
 export const SocialButton: React.FC<ContainerProps> = (props) => {
   const { open } = props;
-  const trail = useTrail(links.length, {
-    config: { mass: 1, tension: 450 },
-    opacity: open ? 1 : 0,
-    y: open ? 0 : 50,
-    from: { opacity: 0, y: 50 },
-  });
-
   return (
     <StyledComponent {...props}>
-      {trail.map(({ y, ...rest }, index) =>
-        links[index]({
-          style: {
-            transform: (y as any).interpolate(
-              (value) => `translateY(${value}%)`,
-            ),
-            ...rest,
-          },
-        }),
-      )}
+      {useTrail(links.length, {
+        config: { mass: 1, tension: 450 },
+        opacity: open ? 1 : 0,
+        y: open ? 0 : 50,
+        from: { opacity: 0, y: 50 },
+      }).map((style, index) => links[index]({ style }))}
     </StyledComponent>
   );
 };

@@ -5,7 +5,6 @@ import styled from "styled-components";
 
 import MobileNav from "~/components/MobileNavMenu";
 import Nav from "~/components/NavMenu";
-import PageTransition from "~/components/PageTransition";
 import "~/styles/tailwind.css";
 
 export type Props = AppProps & { className?: string };

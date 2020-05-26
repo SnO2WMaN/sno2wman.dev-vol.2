@@ -1,6 +1,7 @@
 import classnames from "classnames";
 import Color from "color";
-import React from "react";
+import React, { createRef, useRef } from "react";
+import { animated, useSpring, useTrail, useChain } from "react-spring";
 import styled from "styled-components";
 
 import CodeBlock from "~/components/CodeBlock";
@@ -10,6 +11,13 @@ import CommonCard from "~/components/Profile/CommonCard";
 import Social from "~/components/Profile/Social";
 import Timestamp from "~/components/Profile/Timestamp";
 import { socials as unsortedSocials } from "~/data/accounts";
+import percentage from "~/utils/percentage";
+
+const texts = [
+  "楽園の素敵なフロントエンドエンジニア",
+  "色々なものに手を出して、一生身にならないだけの人生",
+  "主としてウェブサイトを作ったりボクセルアートをやったりしている",
+];
 
 const socials = unsortedSocials.sort(
   ({ color: a }, { color: b }) =>
@@ -68,9 +76,11 @@ export const Component: React.FC<Props> = ({ className }) => {
               "bg-white",
 
               "col-span-1",
+
+              "relative",
             )}
           >
-            <img
+            <animated.img
               className={classnames(
                 "w-full",
                 "m-auto",
@@ -80,6 +90,26 @@ export const Component: React.FC<Props> = ({ className }) => {
               )}
               src="https://www.gravatar.com/avatar/9a828752a7771c3bf43e3bea39d9cf57?s=512"
               alt="me"
+              style={useSpring({
+                scale: 1,
+                opacity: 1,
+                from: { scale: Math.sqrt(2), opacity: 0 },
+                delay: 750,
+              })}
+            />
+            <animated.div
+              className={classnames(
+                "absolute",
+                "inset-0",
+                "bg-blue-500",
+                "rounded-full",
+              )}
+              style={useSpring({
+                scale: Math.sqrt(2),
+                opacity: 0,
+                from: { scale: 0, opacity: 1 },
+                delay: 350,
+              })}
             />
           </Card>
           <CommonCard
@@ -104,8 +134,12 @@ export const Component: React.FC<Props> = ({ className }) => {
                 "gap-1",
               )}
             >
-              {socials.map((props, index, array) => (
-                <Social key={props.key} {...props} t={index / array.length} />
+              {socials.map((props, index, { length }) => (
+                <Social
+                  key={props.key}
+                  {...props}
+                  t={percentage(index, length)}
+                />
               ))}
             </div>
           </CommonCard>
@@ -118,10 +152,15 @@ export const Component: React.FC<Props> = ({ className }) => {
               "flex",
               "flex-col",
               "justify-center",
+
+              "relative",
             )}
           >
-            <p>楽園の素敵なフロントエンドエンジニア</p>
-            <p>色々なものに手を出して、一生身にならないだけの人生</p>
+            {texts.map((text, i) => (
+              <p key={i} className={classnames("leading-loose")}>
+                {text}
+              </p>
+            ))}
           </CommonCard>
           <Card
             className={classnames(

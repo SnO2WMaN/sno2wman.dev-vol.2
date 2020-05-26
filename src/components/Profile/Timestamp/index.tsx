@@ -26,30 +26,8 @@ type Event = {
 export const EComponent: React.FC<
   Event & { className?: string; t1: number; t2: number }
 > = ({ className, date, icon, title, link, t1, t2 }) => {
-  const baseDelay = 250 + t1 * 500 + t2 * 250;
-  const iconCoverAnimation = useSpring({
-    transform: "scale(1.25)",
-    opacity: 0,
-    from: { transform: "scale(0)", opacity: 1 },
-    config: { friction: 40 },
-    delay: baseDelay,
-  });
-  const iconAnimation = useSpring({
-    transform: "scale(1)",
-    from: { transform: "scale(0)" },
-    config: { friction: 35 },
-    delay: baseDelay + 50,
-  });
-  const textAnimation = useSpring({
-    transform: "translateX(0)",
-    opacity: 1,
-    from: {
-      opacity: 0,
-      transform: "translateX(-50%)",
-    },
-    config: { friction: 25 },
-    delay: baseDelay + 50,
-  });
+  const baseDelay = 250 + t1 * 350 + t2 * 250;
+
   return (
     <li className={classnames(className, "flex", "flex-col", "items-center")}>
       <SplitSpan
@@ -72,9 +50,23 @@ export const EComponent: React.FC<
             "inset-0",
             "rounded-full",
           )}
-          style={iconCoverAnimation}
+          style={useSpring({
+            transform: "scale(1.25)",
+            opacity: 0,
+            from: { transform: "scale(0)", opacity: 1 },
+            config: { friction: 40 },
+            delay: baseDelay,
+          })}
         />
-        <animated.div style={iconAnimation} className={classnames("flex")}>
+        <animated.div
+          style={useSpring({
+            transform: "scale(1)",
+            from: { transform: "scale(0)" },
+            config: { friction: 35 },
+            delay: baseDelay + 50,
+          })}
+          className={classnames("flex")}
+        >
           <FontAwesomeIcon
             icon={icon}
             className={classnames("text-xl", "text-gray-500")}
@@ -87,11 +79,21 @@ export const EComponent: React.FC<
           "text-sm",
           "tracking-wide",
           "select-all",
+          "origin-top",
         )}
         style={{
           writingMode: "vertical-rl",
           textOrientation: "sideways",
-          ...textAnimation,
+          ...useSpring({
+            transform: "translateY(0)",
+            opacity: 1,
+            from: {
+              opacity: 0,
+              transform: "translateY(-1em)",
+            },
+            config: { friction: 50, tension: 350 },
+            delay: baseDelay + 200,
+          }),
         }}
       >
         {title}
@@ -123,23 +125,19 @@ export const SplitSpan: React.FC<{ className?: string; delay: number }> = ({
   className,
 }) => {
   const sp = children.toString().split("");
-  const s = useTrail(sp.length, {
-    opacity: 1,
-    y: 0,
-    from: { opacity: 0, y: -50 },
-    config: { tension: 500, friction: 35 },
-    delay,
-  });
   return (
     <span className={classnames(className)}>
-      {s.map(({ y, ...rest }, index) => (
+      {useTrail(sp.length, {
+        opacity: 1,
+        y: 0,
+        from: { opacity: 0, y: -50 },
+        config: { tension: 500, friction: 35 },
+        delay,
+      }).map((style, index) => (
         <animated.span
           className={classnames("inline-block")}
           key={index}
-          style={{
-            ...rest,
-            transform: y.interpolate((v) => `translateY(${v}%)`),
-          }}
+          style={style}
         >
           {sp[index]}
         </animated.span>
@@ -175,6 +173,7 @@ export const Component: React.FC<Props> = ({ className, timestamps }) => (
               transform: "scaleY(1)",
               from: { transform: "scaleY(0)" },
               delay: percentage(yi, years) * 500,
+              config: { tension: 500, friction: 65 },
             })}
           />
           <SplitSpan
