@@ -45,9 +45,11 @@ export const Component: React.FC<Props> = ({
     >
       {children}
     </span>
-    <Link href={link}>
-      <div className={classnames("absolute", "inset-0", "cursor-pointer")} />
-    </Link>
+    {!current && (
+      <Link href={link}>
+        <div className={classnames("absolute", "inset-0", "cursor-pointer")} />
+      </Link>
+    )}
   </li>
 );
 export const StyledComponent: typeof Component = styled(Component)`
