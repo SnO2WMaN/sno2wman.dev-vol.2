@@ -31,19 +31,15 @@ export const AppComponent: React.FC<Props> = ({
       />
     </div>
     <div
-      className={classnames("flex-grow", "h-screen", "relative", "bg-gray-900")}
+      className={classnames(
+        "flex-grow",
+        "h-screen",
+        "relative",
+        "bg-gray-900",
+        "overflow-y-scroll",
+      )}
     >
-      <PageTransition
-        className={classnames(
-          "absolute",
-          "top-0",
-          "w-full",
-          "h-screen",
-          "overflow-y-scroll",
-        )}
-      >
-        <Component {...pageProps} />
-      </PageTransition>
+      <Component {...pageProps} />
     </div>
   </div>
 );
