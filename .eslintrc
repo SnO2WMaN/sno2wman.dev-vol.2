@@ -24,14 +24,7 @@
   "rules": {
     "class-methods-use-this": 0,
     // unicorn
-    "unicorn/prevent-abbreviations": [
-      1,
-      {
-        "replacements": {
-          "props": { "properties": false }
-        }
-      }
-    ],
+    "unicorn/prevent-abbreviations": 0,
     // import
     "import/order": [
       2,
