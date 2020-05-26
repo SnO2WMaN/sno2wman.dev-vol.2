@@ -37,6 +37,7 @@ export const EComponent: React.FC<
           "tracking-widest",
           "font-mono",
           "select-none",
+          "whitespace-no-wrap",
         )}
         delay={baseDelay}
       >
@@ -184,6 +185,7 @@ export const Component: React.FC<Props> = ({ className, timestamps }) => (
               "tracking-widest",
               "font-mono",
               "select-none",
+              "whitespace-no-wrap",
             )}
           >
             {year}
