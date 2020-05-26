@@ -27,50 +27,46 @@ export const Component: React.FC<Props> = ({ className, toggleMenu, menu }) => (
   >
     <div
       className={classnames(
-        "absolute",
-        "inset-0",
-        "flex",
-        "justify-center",
-        "items-center",
         "transform",
         {
           "translate-y-0": !menu,
-          "-translate-y-full": menu,
+          "-translate-y-1/2": menu,
         },
         "transition-transform",
         "duration-300",
       )}
     >
-      <FontAwesomeIcon
-        icon={faBars}
-        className={classnames("text-xl", "text-gray-900")}
-      />
-    </div>
-    <div
-      className={classnames(
-        "absolute",
-        "inset-0",
-        "flex",
-        "justify-center",
-        "items-center",
-        "transform",
-        {
-          "translate-y-0": menu,
-          "translate-y-full": !menu,
-        },
-        "transition-transform",
-        "duration-300",
-      )}
-    >
-      <FontAwesomeIcon
-        icon={faTimes}
-        className={classnames("text-xl", "text-gray-900")}
-      />
+      <div
+        className={classnames(
+          "w-12",
+          "h-12",
+          "flex",
+          "justify-center",
+          "items-center",
+        )}
+      >
+        <FontAwesomeIcon
+          icon={faBars}
+          className={classnames("text-xl", "text-gray-900")}
+        />
+      </div>
+      <div
+        className={classnames(
+          "w-12",
+          "h-12",
+          "flex",
+          "justify-center",
+          "items-center",
+        )}
+      >
+        <FontAwesomeIcon
+          icon={faTimes}
+          className={classnames("text-xl", "text-gray-900")}
+        />
+      </div>
     </div>
   </button>
 );
-export const StyledComponent: typeof Component = styled(Component)`
-  backdrop-filter: blur(10px);
-`;
+export const StyledComponent: typeof Component = styled(Component)``;
 
 export default StyledComponent;

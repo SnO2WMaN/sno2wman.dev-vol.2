@@ -12,8 +12,12 @@ export type Props = Merge<
 >;
 export const Component: React.FC<Props> = ({ className, toggleMenu, menu }) => (
   <>
-    <div className={className}>
-      <Hamburger toggleMenu={toggleMenu} menu={menu} />
+    <div className={classnames(className, "flex")}>
+      <Hamburger
+        toggleMenu={toggleMenu}
+        menu={menu}
+        className={classnames("z-50")}
+      />
       <Menu
         className={classnames("menu", "absolute", "left-0", "mb-4")}
         open={menu}
