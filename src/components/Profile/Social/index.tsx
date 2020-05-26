@@ -3,11 +3,10 @@ import Color from "color";
 import React from "react";
 import { animated, useSpring } from "react-spring";
 import styled from "styled-components";
-import { Merge } from "type-fest";
 
 import { socials } from "../../../data/accounts";
 
-export type Props = Merge<ContainerProps, {}>;
+export type Props = ContainerProps;
 export const Component: React.FC<Props> = ({
   className,
   icon,

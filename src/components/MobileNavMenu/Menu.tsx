@@ -30,7 +30,7 @@ const links = [
   ),
 ];
 
-export type Props = Merge<ContainerProps, {}>;
+export type Props = ContainerProps;
 export const Component: React.FC<Props> = ({ className, children }) => (
   <nav className={classnames(className, "flex", "flex-col", "space-y-4")}>
     {children}

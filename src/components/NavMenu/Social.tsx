@@ -3,9 +3,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import classnames from "classnames";
 import React from "react";
 import styled from "styled-components";
-import { Merge } from "type-fest";
 
-export type Props = Merge<ContainerProps, {}>;
+export type Props = ContainerProps;
 export const Component: React.FC<Props> = ({
   className,
   children,

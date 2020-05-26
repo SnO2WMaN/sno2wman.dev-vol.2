@@ -12,12 +12,11 @@ import {
 import classnames from "classnames";
 import React from "react";
 import styled from "styled-components";
-import { Merge } from "type-fest";
 
 import Link from "./Link";
 import Social from "./Social";
 
-export type Props = Merge<ContainerProps, {}>;
+export type Props = ContainerProps;
 export const Component: React.FC<Props> = ({ className }) => (
   <nav
     className={classnames(
