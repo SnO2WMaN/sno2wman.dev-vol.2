@@ -36,7 +36,7 @@
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-is": "16.13.1",
-    "react-spring": "^9.0.0-rc.3",
+    "react-spring": "9.0.0-rc.3",
     "react-use": "15.1.0",
     "styled-components": "5.1.1",
     "tailwindcss": "1.4.6",
