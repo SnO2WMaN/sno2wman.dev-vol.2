@@ -1,13 +1,9 @@
 import classnames from "classnames";
-import React, { useRef } from "react";
-import {
-  useSpring,
-  animated,
-  useTransition,
-  useChain,
-  config,
-} from "react-spring";
+import React from "react";
+import { animated, config, useSpring } from "react-spring";
 import styled from "styled-components";
+
+import Head from "~/components/Head";
 
 export type Props = {
   className?: string;
@@ -22,6 +18,7 @@ export const Component: React.FC<Props> = ({ className }) => {
 
   return (
     <main className={classnames(className, "bg-gray-700")}>
+      <Head title={"sno2wman.dev"} url={"https://sno2wman.dev"} />
       <div
         className={classnames(
           "w-full",

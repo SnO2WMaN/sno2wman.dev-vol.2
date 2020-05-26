@@ -1,0 +1,12 @@
+{
+  "rules": {
+    "import/prefer-default-export": 0,
+    "unicorn/filename-case": [
+      1,
+      {
+        "cases": { "camelCase": true },
+        "ignore": ["index"]
+      }
+    ]
+  }
+}

@@ -22,15 +22,9 @@
     }
   },
   "rules": {
+    "class-methods-use-this": 0,
     // unicorn
-    "unicorn/prevent-abbreviations": [
-      1,
-      {
-        "replacements": {
-          "props": { "properties": false }
-        }
-      }
-    ],
+    "unicorn/prevent-abbreviations": 0,
     // import
     "import/order": [
       2,
@@ -42,6 +36,7 @@
         }
       }
     ],
+    "import/extensions": [1, { "js": "never", "json": "always" }],
     // react
     "react/self-closing-comp": 2,
     // eslint-comment
@@ -73,15 +68,7 @@
       },
       "rules": {
         // react
-        "react/prop-types": 0,
-
-        // import
-        "import/extensions": [
-          2,
-          {
-            "ts": "never"
-          }
-        ]
+        "react/prop-types": 0
       }
     },
     {

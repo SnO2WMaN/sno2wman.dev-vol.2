@@ -14,46 +14,58 @@ export const Component: React.FC<Props> = ({
   icon,
   link,
   current,
+  ...rest
 }) => (
   <li
+    {...rest}
     className={classnames(
       className,
-      "flex",
       "items-center",
-      "px-6",
-      "py-4",
       "relative",
       "select-none",
-      "hover:bg-gray-400",
-      "border-blue-400",
-      { "border-l-8": current },
+      "w-12",
+      "h-12",
+      "flex",
+      "justify-center",
+      "items-center",
+      "bg-white",
+      "rounded-lg",
+      "shadow-lg",
+      {
+        "bg-opacity-25": current,
+        "bg-opacity-50": !current,
+      },
     )}
   >
-    <FontAwesomeIcon
-      icon={icon}
-      fixedWidth
-      className={classnames("mr-3", "text-base", "text-gray-900")}
-    />
-    <span
-      className={classnames(
-        "tracking-widest",
-        "text-sm",
-        "font-display",
-        "uppercase",
-        "text-gray-900",
-      )}
-    >
-      {children}
-    </span>
     {!current && (
       <Link href={link}>
         <div className={classnames("absolute", "inset-0", "cursor-pointer")} />
       </Link>
     )}
+    <FontAwesomeIcon
+      icon={icon}
+      fixedWidth
+      className={classnames("text-base", "text-gray-900")}
+    />
+    <span
+      className={classnames(
+        "absolute",
+        "tracking-wider",
+        "text-xs",
+        "uppercase",
+        "ml-3",
+        "font-display",
+        "text-gray-900",
+      )}
+    >
+      {children}
+    </span>
   </li>
 );
 export const StyledComponent: typeof Component = styled(Component)`
-  transition: border-width 0.25s ease;
+  > span {
+    left: 100%;
+  }
 `;
 
 export type ContainerProps = {
