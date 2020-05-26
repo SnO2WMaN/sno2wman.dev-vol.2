@@ -36,10 +36,10 @@ const Header: React.FC<Props> = ({ title, description, keyword, url }) => (
           <link rel="canonical" href={url} />
         </>
       )}
-      <link rel="shortcut icon" href="/favicon.png" />
-      <meta name="twitter:url" content="/ogp.png" />
-      <meta property="og:image" content="/ogp.png" />
-      <meta name="twitter:image" content="/ogp.png" />
+      <link rel="shortcut icon" href="https://sno2wman.dev/favicon.png" />
+      <meta name="twitter:url" content="https://sno2wman.dev/ogp.png" />
+      <meta property="og:image" content="https://sno2wman.dev/ogp.png" />
+      <meta name="twitter:image" content="https://sno2wman.dev/ogp.png" />
       <meta property="og:type" content="website" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content="@SnO2WMaN" />
