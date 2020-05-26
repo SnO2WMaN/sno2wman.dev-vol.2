@@ -5,7 +5,7 @@ import { Merge } from "type-fest";
 
 import tailwind from "~/utils/tailwind";
 
-export type Props = Merge<ContainerProps, {}>;
+export type Props = ContainerProps;
 export const Component: React.FC<Props> = ({ className, children }) => (
   <pre
     className={classnames(
