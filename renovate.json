@@ -3,7 +3,7 @@
     "config:base",
     ":label(Renovate)",
     ":timezone(Asia/Tokyo)",
-    "schedule:daily",
+    "schedule:weakly",
     ":maintainLockFilesWeekly",
     ":automergePatch",
     ":prHourlyLimitNone",
